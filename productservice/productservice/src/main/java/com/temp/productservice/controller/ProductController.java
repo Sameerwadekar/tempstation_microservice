@@ -57,26 +57,26 @@ public class ProductController {
 		ProductDto product = productService.addProduct(productDto);
 		return new ResponseEntity<ProductDto>(product,HttpStatus.CREATED);
 	}
-//	@GetMapping
-//	public ResponseEntity<List<ProductDto>> allProducts(){
-//		List<ProductDto> allProducts = productService.getAllProducts();
-//		return new ResponseEntity<List<ProductDto>>(allProducts,HttpStatus.OK);
-//	}
-//	@GetMapping("/{id}")
-//	public ResponseEntity<ProductDto> getProductById(@PathVariable int id){
-//		ProductDto productById = productService.getProductById(id);
-//		return new ResponseEntity<ProductDto>(productById,HttpStatus.OK);
-//	}
-//	@PutMapping("/{id}")
-//	public ResponseEntity<ProductDto> updateProduct(@PathVariable int id,@RequestBody ProductDto productDto){
-//		ProductDto updatedProductbyId = productService.updateProductbyId(id, productDto);
-//		return new ResponseEntity<ProductDto>(updatedProductbyId, HttpStatus.OK);
-//	}
-//	@DeleteMapping("/{id}")
-//	public ResponseEntity<String> deleteProduct(@PathVariable int id){
-//		productService.deleteProduct(id);
-//		return new ResponseEntity<String>("Product Deleted",HttpStatus.OK);
-//	}
+	@GetMapping("/allproducts")
+	public ResponseEntity<List<ProductDto>> allProducts(){
+		List<ProductDto> allProducts = productService.getAllProducts();
+		return new ResponseEntity<List<ProductDto>>(allProducts,HttpStatus.OK);
+	}
+	@GetMapping("/{id}")
+	public ResponseEntity<ProductDto> getProductById(@PathVariable int id){
+		ProductDto productById = productService.getProductById(id);
+		return new ResponseEntity<ProductDto>(productById,HttpStatus.OK);
+	}
+	@PutMapping("/{id}")
+	public ResponseEntity<ProductDto> updateProduct(@PathVariable int id,@RequestBody ProductDto productDto){
+		ProductDto updatedProductbyId = productService.updateProductbyId(id, productDto);
+		return new ResponseEntity<ProductDto>(updatedProductbyId, HttpStatus.OK);
+	}
+	@DeleteMapping("/{id}")
+	public ResponseEntity<String> deleteProduct(@PathVariable int id){
+		productService.deleteProduct(id);
+		return new ResponseEntity<String>("Product Deleted",HttpStatus.OK);
+	}
 //	@PutMapping("/{pid}/category/{cid}")
 //	public ResponseEntity<ProductDto> assignCategoty(@PathVariable int pid, @PathVariable int cid){
 //		ProductDto productDto = productService.assignCategory(pid, cid);
